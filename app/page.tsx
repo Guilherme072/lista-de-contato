@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import {
   Plus,
   Search,
@@ -19,18 +19,35 @@ import {
   Code,
   Users,
   Clock,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { ChevronDown, AlertTriangle } from "lucide-react"
-import { BrandCard } from "@/components/brand-card"
-import { AddBrandDialog } from "@/components/add-brand-dialog"
-import { BrandDetailsModal } from "@/components/brand-details-modal"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import './globals.css';
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { ChevronDown, AlertTriangle } from "lucide-react";
+import { BrandCard } from "@/components/brand-card";
+import { AddBrandDialog } from "@/components/add-brand-dialog";
+import { BrandDetailsModal } from "@/components/brand-details-modal";
 
 // Dados completos baseados na lista de contatos fornecida
 const initialBrands = [
@@ -1534,7 +1551,7 @@ const initialBrands = [
     addedBy: "Sistema",
     suggestedBy: null,
   },
-]
+];
 
 const getFaqByCategory = (category: string) => {
   const baseFaq = [
@@ -1578,7 +1595,7 @@ const getFaqByCategory = (category: string) => {
       answer:
         "• Registre TODAS as interações (data, canal, resultado)\n• Anote preferências pessoais e profissionais\n• Documente objeções e feedbacks recebidos\n• Mantenha histórico de propostas enviadas\n• Atualize status regularmente\n• Configure lembretes para follow-ups\n• Backup dos dados semanalmente\n• Compartilhe informações relevantes com a equipe",
     },
-  ]
+  ];
 
   const categorySpecific = {
     Marca: [
@@ -1732,85 +1749,99 @@ const getFaqByCategory = (category: string) => {
           "• Mencione quem fez a sugestão\n• Explique por que foi escolhido\n• Apresente proposta clara e objetiva\n• Inclua informações sobre a marca\n• Seja transparente sobre expectativas\n• Ofereça reunião para alinhamento\n• Mantenha tom profissional mas amigável\n• Defina próximos passos claramente",
       },
     ],
-  }
+  };
 
-  return [...baseFaq, ...(categorySpecific[category] || [])]
-}
+  return [...baseFaq, ...(categorySpecific[category] || [])];
+};
 
 export default function MailingControl() {
-  const [brands, setBrands] = useState([])
-  const [selectedBrand, setSelectedBrand] = useState(null)
-  const [searchTerm, setSearchTerm] = useState("")
-  const [categoryFilter, setCategoryFilter] = useState("all")
-  const [statusFilter, setStatusFilter] = useState("all")
-  const [showAddDialog, setShowAddDialog] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [activeTab, setActiveTab] = useState("todos")
-  const [lastModified, setLastModified] = useState(null)
+  const [brands, setBrands] = useState([]);
+  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [showAddDialog, setShowAddDialog] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState("todos");
+  const [lastModified, setLastModified] = useState(null);
 
   // Carregar dados do localStorage na inicialização
   useEffect(() => {
-    const savedBrands = localStorage.getItem("mailingControlBrands")
-    const savedLastModified = localStorage.getItem("mailingControlLastModified")
+    const savedBrands = localStorage.getItem("mailingControlBrands");
+    const savedLastModified = localStorage.getItem(
+      "mailingControlLastModified"
+    );
 
     if (savedBrands) {
       try {
-        setBrands(JSON.parse(savedBrands))
+        setBrands(JSON.parse(savedBrands));
         if (savedLastModified) {
-          setLastModified(new Date(savedLastModified))
+          setLastModified(new Date(savedLastModified));
         }
       } catch (error) {
-        console.error("Erro ao carregar dados salvos:", error)
-        setBrands(initialBrands)
-        setLastModified(new Date())
+        console.error("Erro ao carregar dados salvos:", error);
+        setBrands(initialBrands);
+        setLastModified(new Date());
       }
     } else {
-      setBrands(initialBrands)
-      setLastModified(new Date())
+      setBrands(initialBrands);
+      setLastModified(new Date());
     }
-  }, [])
+  }, []);
 
   // Salvar dados no localStorage sempre que brands mudar
   useEffect(() => {
     if (brands.length > 0) {
-      const now = new Date()
-      localStorage.setItem("mailingControlBrands", JSON.stringify(brands))
-      localStorage.setItem("mailingControlLastModified", now.toISOString())
-      setLastModified(now)
+      const now = new Date();
+      localStorage.setItem("mailingControlBrands", JSON.stringify(brands));
+      localStorage.setItem("mailingControlLastModified", now.toISOString());
+      setLastModified(now);
     }
-  }, [brands])
+  }, [brands]);
 
   // Simular loading ao trocar de aba
   const handleTabChange = (value: string) => {
-    setIsLoading(true)
-    setActiveTab(value)
-    setTimeout(() => setIsLoading(false), 300)
-  }
+    setIsLoading(true);
+    setActiveTab(value);
+    setTimeout(() => setIsLoading(false), 300);
+  };
 
   const getFilteredBrands = (category = "all") => {
     return brands.filter((brand) => {
       const matchesSearch =
         brand.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        brand.category.toLowerCase().includes(searchTerm.toLowerCase())
-      const matchesCategory = categoryFilter === "all" || brand.category === categoryFilter
-      const matchesStatus = statusFilter === "all" || brand.status === statusFilter
-      const matchesTabCategory = category === "all" || brand.category === category
+        brand.category.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory =
+        categoryFilter === "all" || brand.category === categoryFilter;
+      const matchesStatus =
+        statusFilter === "all" || brand.status === statusFilter;
+      const matchesTabCategory =
+        category === "all" || brand.category === category;
 
-      return matchesSearch && matchesCategory && matchesStatus && matchesTabCategory
-    })
-  }
+      return (
+        matchesSearch && matchesCategory && matchesStatus && matchesTabCategory
+      );
+    });
+  };
 
-  const categories = [...new Set(brands.map((brand) => brand.category))]
-  const statuses = [...new Set(brands.map((brand) => brand.status))]
+  const categories = [...new Set(brands.map((brand) => brand.category))];
+  const statuses = [...new Set(brands.map((brand) => brand.status))];
 
   // Marcas sem contatos para a seção "Parcerias a serem buscadas"
   const getBrandsWithoutContacts = (category = "all") => {
-    return brands.filter((brand) => brand.contacts.length === 0 && (category === "all" || brand.category === category))
-  }
+    return brands.filter(
+      (brand) =>
+        brand.contacts.length === 0 &&
+        (category === "all" || brand.category === category)
+    );
+  };
 
   const stats = {
     totalBrands: brands.length,
-    totalContacts: brands.reduce((acc, brand) => acc + brand.contacts.length, 0),
+    totalContacts: brands.reduce(
+      (acc, brand) => acc + brand.contacts.length,
+      0
+    ),
     activeBrands: brands.filter((brand) => brand.status === "Ativo").length,
     prospects: brands.filter((brand) => brand.status === "Prospecto").length,
     neverContacted: brands.filter((brand) => brand.neverContacted).length,
@@ -1818,74 +1849,91 @@ export default function MailingControl() {
       Marca: brands.filter((brand) => brand.category === "Marca").length,
       Bet: brands.filter((brand) => brand.category === "Bet").length,
       Agência: brands.filter((brand) => brand.category === "Agência").length,
-      Influenciador: brands.filter((brand) => brand.category === "Influenciador").length,
-      "Pessoa Influente": brands.filter((brand) => brand.category === "Pessoa Influente").length,
-      Freelancer: brands.filter((brand) => brand.category === "Freelancer").length,
-      "Influenciador que já fechou": brands.filter((brand) => brand.category === "Influenciador que já fechou").length,
-      "Influenciador sugerido": brands.filter((brand) => brand.category === "Influenciador sugerido").length,
+      Influenciador: brands.filter(
+        (brand) => brand.category === "Influenciador"
+      ).length,
+      "Pessoa Influente": brands.filter(
+        (brand) => brand.category === "Pessoa Influente"
+      ).length,
+      Freelancer: brands.filter((brand) => brand.category === "Freelancer")
+        .length,
+      "Influenciador que já fechou": brands.filter(
+        (brand) => brand.category === "Influenciador que já fechou"
+      ).length,
+      "Influenciador sugerido": brands.filter(
+        (brand) => brand.category === "Influenciador sugerido"
+      ).length,
     },
-  }
+  };
 
   const getCategoryMessage = (category: string) => {
     switch (category) {
       case "Marca":
         return {
           title: "💼 Foco em Parcerias Comerciais",
-          message: "Priorize fechar parcerias duradouras. Apresente cases de sucesso e ROI comprovado.",
+          message:
+            "Priorize fechar parcerias duradouras. Apresente cases de sucesso e ROI comprovado.",
           icon: Briefcase,
-        }
+        };
       case "Bet":
         return {
           title: "⚠️ Jogo Responsável",
-          message: "IMPORTANTE: Sempre promover jogo responsável. Público 18+. Verificar compliance legal.",
+          message:
+            "IMPORTANTE: Sempre promover jogo responsável. Público 18+. Verificar compliance legal.",
           icon: AlertTriangle,
-        }
+        };
       case "Agência":
         return {
           title: "📊 Benchmarking Construtivo",
-          message: "Analise estratégias e cases. Oportunidade de aprendizado mútuo e parcerias estratégicas.",
+          message:
+            "Analise estratégias e cases. Oportunidade de aprendizado mútuo e parcerias estratégicas.",
           icon: TrendingUp,
-        }
+        };
       case "Influenciador":
         return {
           title: "🌟 Relacionamento Direto",
-          message: "Construa relacionamentos autênticos. Foque no fit com a marca e engajamento real.",
+          message:
+            "Construa relacionamentos autênticos. Foque no fit com a marca e engajamento real.",
           icon: Star,
-        }
+        };
       case "Pessoa Influente":
         return {
           title: "👑 Alto Impacto",
-          message: "Contatos de alto valor. Abordagem mais formal. Geralmente via assessoria ou empresários.",
+          message:
+            "Contatos de alto valor. Abordagem mais formal. Geralmente via assessoria ou empresários.",
           icon: UserCheck,
-        }
+        };
       case "Freelancer":
         return {
           title: "🎨 Talentos Criativos",
-          message: "Profissionais para demandas específicas. Mantenha portfólio atualizado e prazos claros.",
+          message:
+            "Profissionais para demandas específicas. Mantenha portfólio atualizado e prazos claros.",
           icon: Palette,
-        }
+        };
       case "Influenciador que já fechou":
         return {
           title: "✅ Parcerias Ativas",
-          message: "Influenciadores com contratos fechados. Foque em otimização e manutenção do relacionamento.",
+          message:
+            "Influenciadores com contratos fechados. Foque em otimização e manutenção do relacionamento.",
           icon: UserCheck,
-        }
+        };
       case "Influenciador sugerido":
         return {
           title: "💡 Oportunidades Sugeridas",
-          message: "Influenciadores indicados pela equipe ou clientes. Avalie fit e potencial antes de abordar.",
+          message:
+            "Influenciadores indicados pela equipe ou clientes. Avalie fit e potencial antes de abordar.",
           icon: Sparkles,
-        }
+        };
       default:
-        return null
+        return null;
     }
-  }
+  };
 
   const renderTabContent = (category = "all") => {
-    const filteredBrands = getFilteredBrands(category)
-    const categoryMessage = getCategoryMessage(category)
-    const categoryBrandsWithoutContacts = getBrandsWithoutContacts(category)
-    const faqData = getFaqByCategory(category)
+    const filteredBrands = getFilteredBrands(category);
+    const categoryMessage = getCategoryMessage(category);
+    const categoryBrandsWithoutContacts = getBrandsWithoutContacts(category);
+    const faqData = getFaqByCategory(category);
 
     return (
       <div className="space-y-16">
@@ -1900,7 +1948,9 @@ export default function MailingControl() {
         )}
 
         <div
-          className={`transition-all duration-500 space-y-16 ${isLoading ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"}`}
+          className={`transition-all duration-500 space-y-16 ${
+            isLoading ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+          }`}
         >
           {/* Category Message */}
           {categoryMessage && (
@@ -1915,7 +1965,9 @@ export default function MailingControl() {
                       {categoryMessage.title}
                       <ChevronRight className="h-6 w-6 eclipse-accent eclipse-pulse" />
                     </h3>
-                    <p className="eclipse-text-secondary text-base leading-relaxed">{categoryMessage.message}</p>
+                    <p className="eclipse-text-secondary text-base leading-relaxed">
+                      {categoryMessage.message}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -1944,14 +1996,21 @@ export default function MailingControl() {
                   </div>
                 </div>
 
-                <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                <Select
+                  value={categoryFilter}
+                  onValueChange={setCategoryFilter}
+                >
                   <SelectTrigger className="w-full md:w-56 h-14 rounded-xl eclipse-input border-0 eclipse-text-primary text-base">
                     <SelectValue placeholder="Categoria" />
                   </SelectTrigger>
                   <SelectContent className="eclipse-card rounded-xl border-0">
                     <SelectItem value="all">Todas as Categorias</SelectItem>
                     {categories.map((cat) => (
-                      <SelectItem key={cat} value={cat} className="eclipse-text-primary hover:eclipse-gradient">
+                      <SelectItem
+                        key={cat}
+                        value={cat}
+                        className="eclipse-text-primary hover:eclipse-gradient"
+                      >
                         {cat}
                       </SelectItem>
                     ))}
@@ -1965,7 +2024,11 @@ export default function MailingControl() {
                   <SelectContent className="eclipse-card rounded-xl border-0">
                     <SelectItem value="all">Todos os Status</SelectItem>
                     {statuses.map((status) => (
-                      <SelectItem key={status} value={status} className="eclipse-text-primary hover:eclipse-gradient">
+                      <SelectItem
+                        key={status}
+                        value={status}
+                        className="eclipse-text-primary hover:eclipse-gradient"
+                      >
                         {status}
                       </SelectItem>
                     ))}
@@ -1987,7 +2050,11 @@ export default function MailingControl() {
                   brand={brand}
                   onClick={() => setSelectedBrand(brand)}
                   onUpdate={(updatedBrand) => {
-                    setBrands(brands.map((b) => (b.id === updatedBrand.id ? updatedBrand : b)))
+                    setBrands(
+                      brands.map((b) =>
+                        b.id === updatedBrand.id ? updatedBrand : b
+                      )
+                    );
                   }}
                 />
               </div>
@@ -2000,9 +2067,12 @@ export default function MailingControl() {
                 <div className="p-6 rounded-2xl eclipse-gradient inline-block mb-8">
                   <Building2 className="h-16 w-16 eclipse-text-primary eclipse-pulse" />
                 </div>
-                <h3 className="eclipse-title text-2xl font-bold mb-4">Nenhum resultado encontrado</h3>
+                <h3 className="eclipse-title text-2xl font-bold mb-4">
+                  Nenhum resultado encontrado
+                </h3>
                 <p className="eclipse-text-secondary mb-8 max-w-md mx-auto text-base leading-relaxed">
-                  Tente ajustar os filtros ou adicione um novo contato para começar.
+                  Tente ajustar os filtros ou adicione um novo contato para
+                  começar.
                 </p>
                 <Button
                   onClick={() => setShowAddDialog(true)}
@@ -2052,26 +2122,40 @@ export default function MailingControl() {
                             <AlertTriangle className="h-7 w-7 text-red-400" />
                           </div>
                           <div>
-                            <h3 className="eclipse-text-primary font-semibold text-lg">{brand.name}</h3>
-                            <p className="eclipse-text-muted text-sm">{brand.category}</p>
+                            <h3 className="eclipse-text-primary font-semibold text-lg">
+                              {brand.name}
+                            </h3>
+                            <p className="eclipse-text-muted text-sm">
+                              {brand.category}
+                            </p>
                           </div>
                         </div>
 
                         <div className="space-y-4 text-sm flex-1">
                           <div className="flex justify-between items-center">
-                            <span className="eclipse-text-muted">Adicionado por:</span>
-                            <span className="eclipse-text-secondary font-medium">{brand.addedBy}</span>
+                            <span className="eclipse-text-muted">
+                              Adicionado por:
+                            </span>
+                            <span className="eclipse-text-secondary font-medium">
+                              {brand.addedBy}
+                            </span>
                           </div>
 
                           {brand.suggestedBy && (
                             <div className="flex justify-between items-center">
-                              <span className="eclipse-text-muted">Sugerido por:</span>
-                              <span className="eclipse-accent font-medium">{brand.suggestedBy}</span>
+                              <span className="eclipse-text-muted">
+                                Sugerido por:
+                              </span>
+                              <span className="eclipse-accent font-medium">
+                                {brand.suggestedBy}
+                              </span>
                             </div>
                           )}
 
                           <div className="flex justify-between items-center">
-                            <span className="eclipse-text-muted">Influenciadores:</span>
+                            <span className="eclipse-text-muted">
+                              Influenciadores:
+                            </span>
                             <Badge className="eclipse-badge text-xs px-3 py-1 rounded-full">
                               {brand.suggestedInfluencers.length}
                             </Badge>
@@ -2105,7 +2189,9 @@ export default function MailingControl() {
                   <CardTitle className="eclipse-title text-2xl flex items-center gap-4">
                     Dúvidas Frequentes e Dicas
                     {category !== "all" && (
-                      <Badge className="eclipse-badge text-sm px-4 py-2 rounded-full">{category}</Badge>
+                      <Badge className="eclipse-badge text-sm px-4 py-2 rounded-full">
+                        {category}
+                      </Badge>
                     )}
                   </CardTitle>
                   <CardDescription className="eclipse-text-secondary mt-2 text-base">
@@ -2142,8 +2228,8 @@ export default function MailingControl() {
           </Card>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div className="min-h-screen eclipse-bg eclipse-scroll">
@@ -2151,9 +2237,12 @@ export default function MailingControl() {
         {/* Header */}
         <div className="flex items-center justify-between animate-in fade-in slide-in-from-top-4">
           <div className="space-y-3">
-            <h1 className="eclipse-title text-5xl font-bold">Controle de Mailing</h1>
+            <h1 className="eclipse-title text-5xl font-bold">
+              Controle de Mailing
+            </h1>
             <p className="eclipse-text-secondary text-xl">
-              Gerencie contatos de marcas, agências, influenciadores e freelancers
+              Gerencie contatos de marcas, agências, influenciadores e
+              freelancers
             </p>
           </div>
           <Button
@@ -2168,18 +2257,48 @@ export default function MailingControl() {
         {/* Stats Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
           {[
-            { title: "Total", value: stats.totalBrands, icon: Building2, color: "eclipse-text-primary" },
-            { title: "Marcas", value: stats.byCategory.Marca, icon: Briefcase, color: "text-blue-400" },
-            { title: "Bets", value: stats.byCategory.Bet, icon: TrendingUp, color: "text-red-400" },
-            { title: "Agências", value: stats.byCategory.Agência, icon: Building2, color: "text-purple-400" },
-            { title: "Influencers", value: stats.byCategory.Influenciador, icon: Star, color: "text-yellow-400" },
+            {
+              title: "Total",
+              value: stats.totalBrands,
+              icon: Building2,
+              color: "eclipse-text-primary",
+            },
+            {
+              title: "Marcas",
+              value: stats.byCategory.Marca,
+              icon: Briefcase,
+              color: "text-blue-400",
+            },
+            {
+              title: "Bets",
+              value: stats.byCategory.Bet,
+              icon: TrendingUp,
+              color: "text-red-400",
+            },
+            {
+              title: "Agências",
+              value: stats.byCategory.Agência,
+              icon: Building2,
+              color: "text-purple-400",
+            },
+            {
+              title: "Influencers",
+              value: stats.byCategory.Influenciador,
+              icon: Star,
+              color: "text-yellow-400",
+            },
             {
               title: "Influentes",
               value: stats.byCategory["Pessoa Influente"],
               icon: UserCheck,
               color: "text-green-400",
             },
-            { title: "Freelancers", value: stats.byCategory.Freelancer, icon: Palette, color: "text-orange-400" },
+            {
+              title: "Freelancers",
+              value: stats.byCategory.Freelancer,
+              icon: Palette,
+              color: "text-orange-400",
+            },
             {
               title: "Fechados",
               value: stats.byCategory["Influenciador que já fechou"],
@@ -2193,17 +2312,25 @@ export default function MailingControl() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-                <CardTitle className="eclipse-text-secondary text-sm font-medium">{stat.title}</CardTitle>
+                <CardTitle className="eclipse-text-secondary text-sm font-medium">
+                  {stat.title}
+                </CardTitle>
                 <stat.icon className={`h-5 w-5 ${stat.color}`} />
               </CardHeader>
               <CardContent>
-                <div className={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
+                <div className={`text-3xl font-bold ${stat.color}`}>
+                  {stat.value}
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <Tabs value={activeTab} onValueChange={handleTabChange} className="space-y-12">
+        <Tabs
+          value={activeTab}
+          onValueChange={handleTabChange}
+          className="space-y-12"
+        >
           <TabsList className="grid w-full grid-cols-9 p-2 eclipse-card rounded-2xl h-16">
             {[
               { value: "todos", label: "Todos" },
@@ -2232,26 +2359,38 @@ export default function MailingControl() {
 
           <TabsContent value="bets">{renderTabContent("Bet")}</TabsContent>
 
-          <TabsContent value="agencias">{renderTabContent("Agência")}</TabsContent>
+          <TabsContent value="agencias">
+            {renderTabContent("Agência")}
+          </TabsContent>
 
-          <TabsContent value="influenciadores">{renderTabContent("Influenciador")}</TabsContent>
+          <TabsContent value="influenciadores">
+            {renderTabContent("Influenciador")}
+          </TabsContent>
 
-          <TabsContent value="pessoas-influentes">{renderTabContent("Pessoa Influente")}</TabsContent>
+          <TabsContent value="pessoas-influentes">
+            {renderTabContent("Pessoa Influente")}
+          </TabsContent>
 
-          <TabsContent value="freelancers">{renderTabContent("Freelancer")}</TabsContent>
+          <TabsContent value="freelancers">
+            {renderTabContent("Freelancer")}
+          </TabsContent>
 
-          <TabsContent value="fechados">{renderTabContent("Influenciador que já fechou")}</TabsContent>
+          <TabsContent value="fechados">
+            {renderTabContent("Influenciador que já fechou")}
+          </TabsContent>
 
-          <TabsContent value="sugeridos">{renderTabContent("Influenciador sugerido")}</TabsContent>
+          <TabsContent value="sugeridos">
+            {renderTabContent("Influenciador sugerido")}
+          </TabsContent>
         </Tabs>
 
         <AddBrandDialog
           open={showAddDialog}
           onOpenChange={setShowAddDialog}
           onAdd={(newBrand) => {
-            const newId = Math.max(...brands.map((b) => b.id), 0) + 1
-            setBrands([...brands, { ...newBrand, id: newId }])
-            setShowAddDialog(false)
+            const newId = Math.max(...brands.map((b) => b.id), 0) + 1;
+            setBrands([...brands, { ...newBrand, id: newId }]);
+            setShowAddDialog(false);
           }}
         />
 
@@ -2260,8 +2399,10 @@ export default function MailingControl() {
           open={!!selectedBrand}
           onClose={() => setSelectedBrand(null)}
           onUpdate={(updatedBrand) => {
-            setBrands(brands.map((b) => (b.id === updatedBrand.id ? updatedBrand : b)))
-            setSelectedBrand(updatedBrand)
+            setBrands(
+              brands.map((b) => (b.id === updatedBrand.id ? updatedBrand : b))
+            );
+            setSelectedBrand(updatedBrand);
           }}
         />
       </div>
@@ -2276,7 +2417,9 @@ export default function MailingControl() {
               </div>
               <div>
                 <h3 className="eclipse-title font-bold">Controle de Mailing</h3>
-                <p className="eclipse-text-muted text-sm">Sistema de gestão de contatos profissionais</p>
+                <p className="eclipse-text-muted text-sm">
+                  Sistema de gestão de contatos profissionais
+                </p>
               </div>
             </div>
 
@@ -2293,7 +2436,12 @@ export default function MailingControl() {
                 <Clock className="h-4 w-4" />
                 <span>
                   {lastModified
-                    ? `Atualizado ${lastModified.toLocaleDateString("pt-BR")} às ${lastModified.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`
+                    ? `Atualizado ${lastModified.toLocaleDateString(
+                        "pt-BR"
+                      )} às ${lastModified.toLocaleTimeString("pt-BR", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}`
                     : "Carregando..."}
                 </span>
               </div>
@@ -2312,5 +2460,5 @@ export default function MailingControl() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
