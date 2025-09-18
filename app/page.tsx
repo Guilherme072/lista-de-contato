@@ -29,7 +29,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import './globals.css';
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -57,7 +56,7 @@ const initialBrands = [
     name: "Casas Bahia / Ponto Frio",
     category: "Marca",
     website: "https://casasbahia.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=CB",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 1,
@@ -104,7 +103,7 @@ const initialBrands = [
     name: "Opera GX",
     category: "Marca",
     website: "https://operagx.gg",
-    logo: "/placeholder.svg?height=60&width=60&text=OGX",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 3,
@@ -141,7 +140,7 @@ const initialBrands = [
     name: "Nord VPN",
     category: "Marca",
     website: "https://nordvpn.com",
-    logo: "/placeholder.svg?height=60&width=60&text=NVPN",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 4,
@@ -178,7 +177,7 @@ const initialBrands = [
     name: "Spotify",
     category: "Marca",
     website: "https://spotify.com",
-    logo: "/placeholder.svg?height=60&width=60&text=SPOT",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 5,
@@ -215,7 +214,7 @@ const initialBrands = [
     name: "Fifine",
     category: "Marca",
     website: "https://fifine.cc",
-    logo: "/placeholder.svg?height=60&width=60&text=FIF",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 6,
@@ -252,7 +251,7 @@ const initialBrands = [
     name: "Duolingo",
     category: "Marca",
     website: "https://duolingo.com",
-    logo: "/placeholder.svg?height=60&width=60&text=DUO",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 7,
@@ -289,7 +288,7 @@ const initialBrands = [
     name: "Sofá na Caixa",
     category: "Marca",
     website: "https://sofanacaixa.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=SNC",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 8,
@@ -326,7 +325,7 @@ const initialBrands = [
     name: "KaBum",
     category: "Marca",
     website: "https://kabum.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=KB",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 9,
@@ -363,7 +362,7 @@ const initialBrands = [
     name: "Panasonic",
     category: "Marca",
     website: "https://panasonic.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=PAN",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 10,
@@ -410,7 +409,7 @@ const initialBrands = [
     name: "Amazon",
     category: "Marca",
     website: "https://amazon.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=AMZ",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 12,
@@ -449,7 +448,7 @@ const initialBrands = [
     name: "Ambev",
     category: "Marca",
     website: "https://ambev.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=AMB",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 13,
@@ -486,7 +485,7 @@ const initialBrands = [
     name: "Burger King",
     category: "Marca",
     website: "https://burgerking.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=BK",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 14,
@@ -523,7 +522,7 @@ const initialBrands = [
     name: "Danone",
     category: "Marca",
     website: "https://danone.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=DAN",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 15,
@@ -570,7 +569,7 @@ const initialBrands = [
     name: "iFood",
     category: "Marca",
     website: "https://ifood.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=IF",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 17,
@@ -607,7 +606,7 @@ const initialBrands = [
     name: "Heineken",
     category: "Marca",
     website: "https://heineken.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=HEI",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 18,
@@ -646,7 +645,7 @@ const initialBrands = [
     name: "KTO",
     category: "Bet",
     website: "https://kto.com",
-    logo: "/placeholder.svg?height=60&width=60&text=KTO",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 19,
@@ -683,7 +682,7 @@ const initialBrands = [
     name: "Sportsbet.io",
     category: "Bet",
     website: "https://sportsbet.io",
-    logo: "/placeholder.svg?height=60&width=60&text=SB",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 20,
@@ -720,7 +719,7 @@ const initialBrands = [
     name: "Stake",
     category: "Bet",
     website: "https://stake.com",
-    logo: "/placeholder.svg?height=60&width=60&text=STK",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 21,
@@ -757,7 +756,7 @@ const initialBrands = [
     name: "Esportes da Sorte",
     category: "Bet",
     website: "https://esportesdasorte.com",
-    logo: "/placeholder.svg?height=60&width=60&text=ES",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 22,
@@ -794,7 +793,7 @@ const initialBrands = [
     name: "DuelBits",
     category: "Bet",
     website: "https://duelbits.com",
-    logo: "/placeholder.svg?height=60&width=60&text=DB",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 23,
@@ -833,7 +832,7 @@ const initialBrands = [
     name: "Publination",
     category: "Agência",
     website: "https://publination.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=PUB",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 24,
@@ -890,7 +889,7 @@ const initialBrands = [
     name: "Choco Agency",
     category: "Agência",
     website: "https://chocoagency.com",
-    logo: "/placeholder.svg?height=60&width=60&text=CHO",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 27,
@@ -927,7 +926,7 @@ const initialBrands = [
     name: "Jones.ag",
     category: "Agência",
     website: "https://jones.ag",
-    logo: "/placeholder.svg?height=60&width=60&text=JON",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 28,
@@ -964,7 +963,7 @@ const initialBrands = [
     name: "DL7 Assessoria",
     category: "Agência",
     website: "https://dl7assessoria.com",
-    logo: "/placeholder.svg?height=60&width=60&text=DL7",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 29,
@@ -1003,7 +1002,7 @@ const initialBrands = [
     name: "Allan Jesus",
     category: "Pessoa Influente",
     website: "https://instagram.com/allanjesus",
-    logo: "/placeholder.svg?height=60&width=60&text=AJ",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 30,
@@ -1040,7 +1039,7 @@ const initialBrands = [
     name: "Guilherme Raya",
     category: "Pessoa Influente",
     website: "https://x.com/guilhermeraya",
-    logo: "/placeholder.svg?height=60&width=60&text=GR",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1066,7 +1065,7 @@ const initialBrands = [
     name: "Kaarolzx",
     category: "Pessoa Influente",
     website: "https://instagram.com/kaarolzx",
-    logo: "/placeholder.svg?height=60&width=60&text=KZ",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 31,
@@ -1105,7 +1104,7 @@ const initialBrands = [
     name: "Yago - Relam⚡",
     category: "Freelancer",
     website: "https://behance.net/RelampEditor",
-    logo: "/placeholder.svg?height=60&width=60&text=YR",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 32,
@@ -1142,7 +1141,7 @@ const initialBrands = [
     name: "Kaio Caldera",
     category: "Freelancer",
     website: "https://behance.net/bykaiox",
-    logo: "/placeholder.svg?height=60&width=60&text=KC",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 33,
@@ -1179,7 +1178,7 @@ const initialBrands = [
     name: "Tharlles",
     category: "Freelancer",
     website: "https://behance.net/tharlleseditor",
-    logo: "/placeholder.svg?height=60&width=60&text=TH",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 34,
@@ -1218,7 +1217,7 @@ const initialBrands = [
     name: "Felipe Neto",
     category: "Influenciador que já fechou",
     website: "https://youtube.com/felipeneto",
-    logo: "/placeholder.svg?height=60&width=60&text=FN",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 35,
@@ -1255,7 +1254,7 @@ const initialBrands = [
     name: "Whindersson Nunes",
     category: "Influenciador que já fechou",
     website: "https://youtube.com/whinderssonnunes",
-    logo: "/placeholder.svg?height=60&width=60&text=WN",
+    logo: "/teste.jpg",
     contacts: [
       {
         id: 36,
@@ -1294,7 +1293,7 @@ const initialBrands = [
     name: "Casimiro Miguel",
     category: "Influenciador sugerido",
     website: "https://twitch.tv/casimito",
-    logo: "/placeholder.svg?height=60&width=60&text=CM",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1320,7 +1319,7 @@ const initialBrands = [
     name: "Bianca Andrade (Boca Rosa)",
     category: "Influenciador sugerido",
     website: "https://instagram.com/biancaandradee",
-    logo: "/placeholder.svg?height=60&width=60&text=BA",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1348,7 +1347,7 @@ const initialBrands = [
     name: "Nike",
     category: "Marca",
     website: "https://nike.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=NIKE",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1374,7 +1373,7 @@ const initialBrands = [
     name: "Netflix",
     category: "Marca",
     website: "https://netflix.com",
-    logo: "/placeholder.svg?height=60&width=60&text=NFLX",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1400,7 +1399,7 @@ const initialBrands = [
     name: "Coca-Cola",
     category: "Marca",
     website: "https://cocacola.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=COCA",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1426,7 +1425,7 @@ const initialBrands = [
     name: "McDonald's",
     category: "Marca",
     website: "https://mcdonalds.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=MCD",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1452,7 +1451,7 @@ const initialBrands = [
     name: "Samsung",
     category: "Marca",
     website: "https://samsung.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=SAMS",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1478,7 +1477,7 @@ const initialBrands = [
     name: "Blaze",
     category: "Bet",
     website: "https://blaze.com",
-    logo: "/placeholder.svg?height=60&width=60&text=BLZ",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1504,7 +1503,7 @@ const initialBrands = [
     name: "Alura",
     category: "Marca",
     website: "https://alura.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=ALU",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [
@@ -1530,7 +1529,7 @@ const initialBrands = [
     name: "EBAC",
     category: "Marca",
     website: "https://ebaconline.com.br",
-    logo: "/placeholder.svg?height=60&width=60&text=EBAC",
+    logo: "/teste.jpg",
     contacts: [],
     suggestedInfluencers: [],
     observations: [

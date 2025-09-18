@@ -57,7 +57,7 @@ export function BrandCard({ brand, onClick, onUpdate }: BrandCardProps) {
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <Avatar className="w-12 h-12 border-2 border-[#8A4BFF]/30">
-              <AvatarImage src={brand.logo || "/placeholder.svg"} alt={`${brand.name} logo`} />
+              <AvatarImage src={brand.logo || "/teste.jpg"} alt={`${brand.name} logo`} />
               <AvatarFallback className="bg-gradient-to-br from-[#8A4BFF] to-[#DB9EFF] text-white font-bold text-sm">
                 {getInitials(brand.name)}
               </AvatarFallback>
