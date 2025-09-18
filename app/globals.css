@@ -70,10 +70,11 @@
 }
 
 /* Dark Cosmic Theme */
+html,
 body {
-  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 25%, #16213e 50%, #0f0f23 75%, #0a0a0f 100%);
-  background-attachment: fixed;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 25%, #16213e 50%, #0f0f23 75%, #0a0a0f 100%) !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
   position: relative;
   overflow-x: hidden;
 }
@@ -112,135 +113,138 @@ body::before {
 
 /* Eclipse Theme Classes */
 .eclipse-bg {
-  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 25%, #16213e 50%, #0f0f23 75%, #0a0a0f 100%);
-  background-attachment: fixed;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 25%, #16213e 50%, #0f0f23 75%, #0a0a0f 100%) !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
 }
 
 .eclipse-card {
-  background: rgba(15, 15, 35, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(138, 75, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: rgba(15, 15, 35, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(138, 75, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
 .eclipse-card-hover {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
 }
 
 .eclipse-card-hover:hover {
-  border-color: rgba(138, 75, 255, 0.4);
-  box-shadow: 0 12px 40px rgba(138, 75, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+  border-color: rgba(138, 75, 255, 0.4) !important;
+  box-shadow: 0 12px 40px rgba(138, 75, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-2px) !important;
 }
 
 .eclipse-stats-card {
-  background: rgba(15, 15, 35, 0.9);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(138, 75, 255, 0.15);
+  background: rgba(15, 15, 35, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(138, 75, 255, 0.15) !important;
 }
 
 .eclipse-gradient {
-  background: linear-gradient(135deg, rgba(138, 75, 255, 0.1) 0%, rgba(219, 158, 255, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(138, 75, 255, 0.1) 0%, rgba(219, 158, 255, 0.1) 100%) !important;
 }
 
 .eclipse-title {
-  color: #ffffff;
-  text-shadow: 0 0 20px rgba(138, 75, 255, 0.3);
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(138, 75, 255, 0.3) !important;
 }
 
 .eclipse-text-primary {
-  color: #e2e8f0;
+  color: #e2e8f0 !important;
 }
 
 .eclipse-text-secondary {
-  color: #cbd5e1;
+  color: #cbd5e1 !important;
 }
 
 .eclipse-text-muted {
-  color: #94a3b8;
+  color: #94a3b8 !important;
 }
 
 .eclipse-accent {
-  color: #8a4bff;
+  color: #8a4bff !important;
 }
 
 .eclipse-button-primary {
-  background: linear-gradient(135deg, #8a4bff 0%, #db9eff 100%);
-  border: none;
-  color: white;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(138, 75, 255, 0.3);
+  background: linear-gradient(135deg, #8a4bff 0%, #db9eff 100%) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(138, 75, 255, 0.3) !important;
 }
 
 .eclipse-button-primary:hover {
-  background: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%);
-  box-shadow: 0 6px 20px rgba(138, 75, 255, 0.4);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%) !important;
+  box-shadow: 0 6px 20px rgba(138, 75, 255, 0.4) !important;
+  transform: translateY(-1px) !important;
 }
 
 .eclipse-button {
-  background: rgba(138, 75, 255, 0.1);
-  border: 1px solid rgba(138, 75, 255, 0.3);
-  color: #8a4bff;
-  transition: all 0.3s ease;
+  background: rgba(138, 75, 255, 0.1) !important;
+  border: 1px solid rgba(138, 75, 255, 0.3) !important;
+  color: #8a4bff !important;
+  transition: all 0.3s ease !important;
 }
 
 .eclipse-button:hover {
-  background: rgba(138, 75, 255, 0.2);
-  border-color: rgba(138, 75, 255, 0.5);
-  color: #db9eff;
+  background: rgba(138, 75, 255, 0.2) !important;
+  border-color: rgba(138, 75, 255, 0.5) !important;
+  color: #db9eff !important;
 }
 
 .eclipse-input {
-  background: rgba(15, 15, 35, 0.8);
-  border: 1px solid rgba(138, 75, 255, 0.2);
-  color: #e2e8f0;
-  backdrop-filter: blur(10px);
+  background: rgba(15, 15, 35, 0.8) !important;
+  border: 1px solid rgba(138, 75, 255, 0.2) !important;
+  color: #e2e8f0 !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
 }
 
 .eclipse-input:focus {
-  border-color: rgba(138, 75, 255, 0.5);
-  box-shadow: 0 0 0 3px rgba(138, 75, 255, 0.1);
+  border-color: rgba(138, 75, 255, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(138, 75, 255, 0.1) !important;
 }
 
 .eclipse-input::placeholder {
-  color: #94a3b8;
+  color: #94a3b8 !important;
 }
 
 .eclipse-badge {
-  background: rgba(138, 75, 255, 0.2);
-  color: #db9eff;
-  border: 1px solid rgba(138, 75, 255, 0.3);
+  background: rgba(138, 75, 255, 0.2) !important;
+  color: #db9eff !important;
+  border: 1px solid rgba(138, 75, 255, 0.3) !important;
 }
 
 .eclipse-badge-danger {
-  background: rgba(239, 68, 68, 0.2);
-  color: #fca5a5;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #fca5a5 !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
 }
 
 .eclipse-tab {
-  color: #94a3b8;
-  border: 1px solid transparent;
-  transition: all 0.3s ease;
+  color: #94a3b8 !important;
+  border: 1px solid transparent !important;
+  transition: all 0.3s ease !important;
 }
 
 .eclipse-tab[data-state="active"] {
-  background: linear-gradient(135deg, rgba(138, 75, 255, 0.2) 0%, rgba(219, 158, 255, 0.2) 100%);
-  color: #db9eff;
-  border-color: rgba(138, 75, 255, 0.3);
-  box-shadow: 0 2px 10px rgba(138, 75, 255, 0.2);
+  background: linear-gradient(135deg, rgba(138, 75, 255, 0.2) 0%, rgba(219, 158, 255, 0.2) 100%) !important;
+  color: #db9eff !important;
+  border-color: rgba(138, 75, 255, 0.3) !important;
+  box-shadow: 0 2px 10px rgba(138, 75, 255, 0.2) !important;
 }
 
 .eclipse-tab:hover:not([data-state="active"]) {
-  color: #cbd5e1;
-  background: rgba(138, 75, 255, 0.05);
+  color: #cbd5e1 !important;
+  background: rgba(138, 75, 255, 0.05) !important;
 }
 
 .eclipse-pulse {
-  animation: eclipse-pulse 2s infinite;
+  animation: eclipse-pulse 2s infinite !important;
 }
 
 @keyframes eclipse-pulse {
@@ -277,28 +281,28 @@ body::before {
 
 /* Animation Classes */
 .animate-in {
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
+  animation-duration: 0.5s !important;
+  animation-fill-mode: both !important;
 }
 
 .fade-in {
-  animation-name: fadeIn;
+  animation-name: fadeIn !important;
 }
 
 .slide-in-from-bottom-4 {
-  animation-name: slideInFromBottom;
+  animation-name: slideInFromBottom !important;
 }
 
 .slide-in-from-top-4 {
-  animation-name: slideInFromTop;
+  animation-name: slideInFromTop !important;
 }
 
 .slide-in-from-left-4 {
-  animation-name: slideInFromLeft;
+  animation-name: slideInFromLeft !important;
 }
 
 .slide-in-from-top-2 {
-  animation-name: slideInFromTopSmall;
+  animation-name: slideInFromTopSmall !important;
 }
 
 @keyframes fadeIn {
@@ -357,15 +361,32 @@ body::before {
 /* Responsive Design */
 @media (max-width: 768px) {
   .eclipse-card {
-    margin: 0 4px;
+    margin: 0 4px !important;
   }
 
   .eclipse-title {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
   }
 }
 
 /* Loading Animation */
 .animation-delay-150 {
-  animation-delay: 150ms;
+  animation-delay: 150ms !important;
+}
+
+/* Force styles for production */
+#__next {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 25%, #16213e 50%, #0f0f23 75%, #0a0a0f 100%) !important;
+  min-height: 100vh !important;
+}
+
+/* Ensure all components inherit the theme */
+* {
+  box-sizing: border-box !important;
+}
+
+/* Fix for Vercel deployment */
+.vercel-fix {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 25%, #16213e 50%, #0f0f23 75%, #0a0a0f 100%) !important;
+  min-height: 100vh !important;
 }
