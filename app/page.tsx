@@ -28,9 +28,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ChevronDown, AlertTriangle } from "lucide-react"
-import { BrandCard } from "../brand-card"
-import { AddBrandDialog } from "../add-brand-dialog"
-import { BrandDetailsModal } from "../brand-details-modal"
+import { BrandCard } from "@/components/brand-card"
+import { AddBrandDialog } from "@/components/add-brand-dialog"
+import { BrandDetailsModal } from "@/components/brand-details-modal"
 
 // Dados completos baseados na lista de contatos fornecida
 const initialBrands = [
